@@ -30,7 +30,6 @@
 // }
 
 #include <Arduino.h>
-#include <LIB_SSD1306.h>
 // Bibliotecas de I2C
 #include <SPI.h>
 #include <Wire.h>
@@ -38,6 +37,9 @@
 // Biblioteca del display
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+
+// Bibliotecas personalizadas
+#include "ManejoDeLeds.h"
 
 // Biblioteca del sensor BMP280
 // #include <Adafruit_BMP280.h>
@@ -52,6 +54,9 @@
 // Adafruit_BMP280 bmp; // use I2C interface
 // Adafruit_Sensor *bmp_temp = bmp.getTemperatureSensor();
 // Adafruit_Sensor *bmp_pressure = bmp.getPressureSensor();
+
+
+const uint8_t ledDeLaBoard = 2;
 
 void setup() {
   Serial.begin(115200);
@@ -87,10 +92,18 @@ void setup() {
   // a menos que sea lo que quieras, de otra manera haz al configuración
   // y ejecuta la función "display.display()" al final.
 
+    int valor1 = 1;
+    int valor2 = 2;
+
+    declaraLed(ledDeLaBoard);
+    enciendeLed(ledDeLaBoard);
+    delay(2000);
+    apagaLed(ledDeLaBoard);
+
 }
 
 void loop() {
 
-  Serial.println(suma(2,4));
-  Serial.println(multi(6,3));
+  // Serial.println(suma(2,4));
+  // Serial.println(multi(6,3));
 }
